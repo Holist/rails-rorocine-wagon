@@ -1,0 +1,6 @@
+<%= simple_form_for @movie do |f| %>
+  <%= f.input :name %>
+  <%= f.input :synopsis, as: :text %>
+  <%= f.input :year, as: :integer %>
+  <%= f.button :submit %>
+<% end %>

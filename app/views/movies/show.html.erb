@@ -1,0 +1,17 @@
+<h1><%= @movie.name %> </h1>
+<%= link_to "Delete this movie", movie_path(@movie), method: :delete  %>
+
+
+<h3>Add a review</h3>
+
+<%= simple_form_for [@movie, @review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, as: :integer %>
+  <%= f.button :submit %>
+<% end %>
+
+<% @movie.reviews.each do |review| %>
+  <% if review.persisted? %>
+    <p><%= review.content %> - <%= review.rating %>, ><%= link_to "More about", review_path(review) %></p>
+  <% end %>
+<% end %>
